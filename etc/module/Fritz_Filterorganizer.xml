@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Fritz_Filterorganizer>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Fritz_Filterorganizer>
+    </modules>
+</config>

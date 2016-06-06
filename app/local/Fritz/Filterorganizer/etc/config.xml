@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Fritz_Filterorganizer>
+            <version>0.3.6</version>
+        </Fritz_Filterorganizer>
+    </modules>
+    <global>
+                <models>
+
+            <fritz_filterorganizer>
+                <class>Fritz_Filterorganizer_Model</class>
+                <resourceModel>fritz_filterorganizer_resource</resourceModel>
+
+            </fritz_filterorganizer>
+
+            <fritz_filterorganizer_resource>
+                <class>Fritz_Filterorganizer_Model_Resource</class>
+                <entities>
+                    <attributeorder>
+                        <table>category_attribute_order</table>
+                    </attributeorder>
+                </entities>
+
+            </fritz_filterorganizer_resource>
+
+
+                    <catalog>
+                        <rewrite>
+                            <layer>Fritz_Filterorganizer_Model_Layer</layer>
+                        </rewrite>
+                    </catalog>
+
+        </models>
+        <blocks>
+
+            <adminhtml>
+                <rewrite>
+                    <catalog_category_tabs>Fritz_Filterorganizer_Block_Catalog_Category_Tabs</catalog_category_tabs>
+                </rewrite>
+            </adminhtml>
+
+            <catalog>
+                <rewrite>
+                    <layer_view>Fritz_Filterorganizer_Block_Layer_View</layer_view>
+                </rewrite>
+            </catalog>
+
+            <fritz_filterorganizer>
+
+
+
+                <class>Fritz_Filterorganizer_Block</class>
+
+
+            </fritz_filterorganizer>
+
+        </blocks>
+        <helpers>
+            <fritz_filterorganizer>
+                <class>Fritz_Filterorganizer_Helper</class>
+            </fritz_filterorganizer>
+        </helpers>
+        <resources>
+            <fritz_filterorganizer_setup>
+                <setup>
+                    <module>Fritz_Filterorganizer</module>
+
+                </setup>
+            </fritz_filterorganizer_setup>
+        </resources>
+        <events>
+            <catalog_category_save_commit_after>
+                <observers>
+                    <category_category_observer>
+                        <type>singleton</type>
+                        <class>Fritz_Filterorganizer_Model_Category_Observer</class>
+                        <method>saveCategoryData</method>
+                    </category_category_observer>
+                </observers>
+            </catalog_category_save_commit_after>
+
+            <adminhtml_catalog_category_tabs>
+                <observers>
+                    <lg_essentials_essential_category>
+                        <type>singleton</type>
+                        <class>Fritz_Filterorganizer_Model_Category_Observer</class>
+                        <method>addCategoryEssentialBlock</method>
+                    </lg_essentials_essential_category>
+                </observers>
+            </adminhtml_catalog_category_tabs>
+        </events>
+
+
+
+    </global>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <fritz_filerorganizer>
+                    <file>fritz_filterorganizer.xml</file>
+                </fritz_filerorganizer>
+            </updates>
+        </layout>
+    </adminhtml>
+
+</config>
