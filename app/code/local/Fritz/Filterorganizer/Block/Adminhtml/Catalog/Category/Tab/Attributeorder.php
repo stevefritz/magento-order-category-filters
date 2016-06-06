@@ -50,7 +50,11 @@ class Fritz_Filterorganizer_Block_Adminhtml_Catalog_Category_Tab_Attributeorder 
     protected function _getAttributeCollection() {
 
         $category = $this->getCategory();
-        try {
+        if (!$category->getId()) {
+            return new Varien_Data_Collection();
+        }
+
+	try {
             $products = $category->getProductCollection();
             $setIds = $products->getSetIds();
             // collect = filters
@@ -62,7 +66,9 @@ class Fritz_Filterorganizer_Block_Adminhtml_Catalog_Category_Tab_Attributeorder 
                 ->columns('category_attribute_order.category_attribute_order_id')
                 ->columns('category_attribute_order.position')
                 ->joinLeft('category_attribute_order',
-                    "main_table.attribute_id = category_attribute_order.attribute_id and category_id = " . $this->getCategory()->getId()
+                    "main_table.attribute_id = category_attribute_order.attribute_id" .
+                    (  $this->getCategory()->getId() ? " and category_id = " . $this->getCategory()->getId() : "")
+
                 );
 
             $collection
