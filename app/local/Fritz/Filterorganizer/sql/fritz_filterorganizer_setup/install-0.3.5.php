@@ -4,7 +4,7 @@
  * User: stephen
  * Date: 03/06/16
  * Time: 12:13 AM
- */ 
+ */
 /* @var $installer Mage_Core_Model_Resource_Setup */
 $installer = $this;
 
@@ -20,10 +20,17 @@ $table = $installer->getConnection()
     ), 'Id')
     ->addColumn('position', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
         'nullable'  => false,
-    ), 'Position');
+    ), 'Position')   ->addColumn('attribute_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null,
+        array(
+            'nullable' => true,
+            'default' => null,
+        ), "Attribute"
+    )->addColumn( 'category_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null,
+        array(
+            'nullable' => true,
+            'default' => null,
 
+        ), "Category"
+    );
 $installer->getConnection()->createTable($table);
-
-
-
 $installer->endSetup();
