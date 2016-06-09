@@ -14,7 +14,9 @@ class Fritz_Filterorganizer_Model_Category_Observer
         $category = $observer->getEvent()->getDataObject();
         $post = Mage::helper('adminhtml/js')->decodeGridSerializedInput( Mage::app()->getRequest()->
         getPost('categoryAttributes'));
-
+        if (!Mage::registry("current_category")) {
+            return;
+        }
         // or
         $categoryId = Mage::registry("current_category")->getId();
 
