@@ -29,7 +29,6 @@ $table = $installer->getConnection()
         array(
             'nullable' => true,
             'default' => null,
-
         ), "Category"
     );
 $installer->getConnection()->createTable($table);

@@ -17,8 +17,6 @@ class Fritz_Filterorganizer_Model_Layer extends Mage_Catalog_Model_Layer {
      */
     public function getFilterableAttributes()
     {
-//        $entity = Mage::getSingleton('eav/config')
-//            ->getEntityType('catalog_product');
 
         $setIds = $this->_getSetIds();
         if (!$setIds) {

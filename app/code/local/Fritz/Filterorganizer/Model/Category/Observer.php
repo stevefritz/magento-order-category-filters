@@ -10,18 +10,13 @@ class Fritz_Filterorganizer_Model_Category_Observer
 {
     public function saveCategoryData($observer)
     {
-
-        $category = $observer->getEvent()->getDataObject();
-        $post = Mage::helper('adminhtml/js')->decodeGridSerializedInput( Mage::app()->getRequest()->
+        $categoryAttributes = Mage::helper('adminhtml/js')->decodeGridSerializedInput( Mage::app()->getRequest()->
         getPost('categoryAttributes'));
         if (!Mage::registry("current_category")) {
             return;
         }
-        // or
         $categoryId = Mage::registry("current_category")->getId();
-
-
-        foreach ($post as $row) {
+        foreach ($categoryAttributes as $row) {
             $model = Mage::getModel('fritz_filterorganizer/attributeorder');
             $dataTmp = [
                 "category_id" =>$categoryId,
@@ -42,23 +37,18 @@ class Fritz_Filterorganizer_Model_Category_Observer
     }
 
     public function addCategoryEssentialBlock($observer) {
-
-
-       // $content .= $serialize_block->toHtml();
-
-
-
         $tabs = $observer->getEvent()->getTabs();
-
         $content = $tabs->getLayout()->createBlock(
             'fritz_filterorganizer/Adminhtml_Catalog_Category_Tab_Attributeorder',
             'category.order.attributes')->toHtml();
 
+        // TODO Convert this to be loaded via XML.
+        // Serializer allows for grids to be saved
+        // A checkbox is required for this to work.
         $serializer = $tabs->getLayout()->createBlock(
             'adminhtml/widget_grid_serializer',
             'category.essential.grid.serializer'
         );
-
         $serializer->initSerializerBlock(
             'category.order.attributes',
             'getAttributes',

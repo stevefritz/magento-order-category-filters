@@ -6,12 +6,11 @@
         </Fritz_Filterorganizer>
     </modules>
     <global>
-                <models>
+        <models>
 
             <fritz_filterorganizer>
                 <class>Fritz_Filterorganizer_Model</class>
                 <resourceModel>fritz_filterorganizer_resource</resourceModel>
-
             </fritz_filterorganizer>
 
             <fritz_filterorganizer_resource>
@@ -21,19 +20,18 @@
                         <table>category_attribute_order</table>
                     </attributeorder>
                 </entities>
-
             </fritz_filterorganizer_resource>
 
 
-                    <catalog>
-                        <rewrite>
-                            <layer>Fritz_Filterorganizer_Model_Layer</layer>
-                        </rewrite>
-                    </catalog>
+            <catalog>
+                <rewrite>
+                    <layer>Fritz_Filterorganizer_Model_Layer</layer>
+                </rewrite>
+            </catalog>
 
         </models>
-        <blocks>
 
+        <blocks>
             <adminhtml>
                 <rewrite>
                     <catalog_category_tabs>Fritz_Filterorganizer_Block_Catalog_Category_Tabs</catalog_category_tabs>
@@ -47,28 +45,24 @@
             </catalog>
 
             <fritz_filterorganizer>
-
-
-
                 <class>Fritz_Filterorganizer_Block</class>
-
-
             </fritz_filterorganizer>
-
         </blocks>
+
         <helpers>
             <fritz_filterorganizer>
                 <class>Fritz_Filterorganizer_Helper</class>
             </fritz_filterorganizer>
         </helpers>
+
         <resources>
             <fritz_filterorganizer_setup>
                 <setup>
                     <module>Fritz_Filterorganizer</module>
-
                 </setup>
             </fritz_filterorganizer_setup>
         </resources>
+
         <events>
             <catalog_category_save_commit_after>
                 <observers>
@@ -90,9 +84,6 @@
                 </observers>
             </adminhtml_catalog_category_tabs>
         </events>
-
-
-
     </global>
 
     <adminhtml>

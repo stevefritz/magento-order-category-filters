@@ -7,9 +7,4 @@
  */
 
 class Fritz_Filterorganizer_Block_Catalog_Category_Tabs extends Mage_Adminhtml_Block_Catalog_Category_Tabs {
-
-
-
-
-
 }

@@ -10,8 +10,6 @@ class Fritz_Filterorganizer_Model_Resource_Attributeorder_Collection extends Mag
 
     protected function _construct()
     {
-
-
         $this->_init('fritz_filterorganizer/attributeorder');
     }
 
