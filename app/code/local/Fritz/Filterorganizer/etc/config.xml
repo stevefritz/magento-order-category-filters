@@ -85,15 +85,4 @@
             </adminhtml_catalog_category_tabs>
         </events>
     </global>
-
-    <adminhtml>
-        <layout>
-            <updates>
-                <fritz_filerorganizer>
-                    <file>fritz_filterorganizer.xml</file>
-                </fritz_filerorganizer>
-            </updates>
-        </layout>
-    </adminhtml>
-
 </config>
